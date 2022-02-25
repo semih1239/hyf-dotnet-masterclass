@@ -84,18 +84,27 @@ int Fibonacci(int n)
 
 // 5. Arrays
 
-int[] splitNumbers = new[] { 1, 2, 5, 7, 2, 3, 5, 7 };
-
-Console.WriteLine(splitNumbers.Length);
+int[] splitNumbers = new[] { 1, 5, 5, 5, 0, 4, 6, 7 };
 int[,] splitArray = new int[2, splitNumbers.Length / 2];
 int[] result = new int[splitArray.Length / 2];
-Split(splitNumbers);
-AddArray(splitArray);
+
+if ((splitNumbers.Length / 2) % 2 == 1)
+{
+    Console.WriteLine("Total Array items should be even");
+}
+else
+{
+    splitArray = new int[2, splitNumbers.Length / 2];
+    result = new int[splitArray.Length / 2];
+    Split(splitNumbers);
+    AddArray(splitArray);
+    WriteResult(result);
+}
 
 void Split(int[] numbers)
 {
     int[,] array = new int[2, splitNumbers.Length / 2];
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < numbers.Length; i++)
     {
         if (i < numbers.Length / 2)
         {
@@ -109,8 +118,6 @@ void Split(int[] numbers)
     splitArray = array;
 }
 
-// Console.WriteLine(splitArray.Length);
-
 void AddArray(int[,] arr)
 {
     int[] array = new int[arr.Length / 2];
@@ -121,21 +128,10 @@ void AddArray(int[,] arr)
     result = array;
 }
 
-// foreach (var item in result)
-// {
-//     Console.WriteLine(item.ToString());
-// }
-
-Console.WriteLine(splitArray[0, 0]);
-Console.WriteLine(splitArray[0, 1]);
-Console.WriteLine(splitArray[0, 2]);
-Console.WriteLine(splitArray[0, 3]);
-Console.WriteLine(splitArray[1, 0]);
-Console.WriteLine(splitArray[1, 1]);
-Console.WriteLine(splitArray[1, 2]);
-Console.WriteLine(splitArray[1, 3]);
-
-// List<int> fibonacciArray = new List<int>();
+void WriteResult(int[] result)
+{
+    Console.WriteLine(String.Join(",", result));
+}
 
 
 

@@ -88,7 +88,7 @@ int[] splitNumbers = new[] { 1, 5, 5, 5, 0, 4, 6, 7 };
 int[,] splitArray = new int[2, splitNumbers.Length / 2];
 int[] result = new int[splitArray.Length / 2];
 
-if ((splitNumbers.Length / 2) % 2 == 1)
+if ((splitNumbers.Length) % 2 == 1)
 {
     Console.WriteLine("Total Array items should be even");
 }

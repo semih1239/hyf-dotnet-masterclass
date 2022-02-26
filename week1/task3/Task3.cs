@@ -1,10 +1,12 @@
 int[] arr = new[] { 271, -3, 1, 14, -100, 13, 2, 1, -8, -59, -1852, 41, 5 };
-int[] resultArray = new int[2];
-GetResult(arr);
-void GetResult(Array arr)
+int[] resultArray = GetResult(arr);
+Console.WriteLine($"Sum of negative numbers: {resultArray[0]}. Multiplication of positive numbers: {resultArray[1]}");
+
+
+int[] GetResult(int[] arr)
 {
     int positiveNumber = 1;
-    int negativeNumber = new int();
+    int negativeNumber = 0;
 
     foreach (int number in arr)
     {
@@ -17,8 +19,5 @@ void GetResult(Array arr)
             negativeNumber += number;
         }
     }
-
-    resultArray[0] = negativeNumber;
-    resultArray[1] = positiveNumber;
+    return new[] { negativeNumber, positiveNumber };
 }
-Console.WriteLine($"Sum of negative numbers: {resultArray[0]}. Multiplication of positive numbers: {resultArray[1]}");

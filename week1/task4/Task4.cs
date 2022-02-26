@@ -2,19 +2,19 @@ int n = 6;
 int nthNumber = Fibonacci(n);
 Console.WriteLine($"Nth fibonacci number is {nthNumber}");
 
-int Fibonacci(int n)
+int Fibonacci(int number)
 {
-    List<int> fibonacciArray = new List<int>();
-    for (int i = 0; i <= n; i++)
+    int[] fibonacciArray = new int[number + 1];
+    for (int i = 0; i <= number; i++)
     {
         if (i == 0 || i == 1)
         {
-            fibonacciArray.Add(i);
+            fibonacciArray[i] = i;
         }
         else
         {
-            fibonacciArray.Add(fibonacciArray.Last() + fibonacciArray[i - 2]);
+            fibonacciArray[i] = fibonacciArray[i - 1] + fibonacciArray[i - 2];
         }
     }
-    return fibonacciArray.Last();
+    return fibonacciArray[number];
 }

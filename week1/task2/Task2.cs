@@ -1,8 +1,7 @@
 string input = "Intellectualization";
 
-int GetVovelCount(string word)
+int GetVowelCount(string word)
 {
-    word.ToLower();
     int count = 0;
     foreach (char c in word)
     {
@@ -14,4 +13,4 @@ int GetVovelCount(string word)
     return count;
 }
 
-Console.WriteLine($"Number of vowels: {GetVovelCount(input)}");
+Console.WriteLine($"Number of vowels: {GetVowelCount(input)}");

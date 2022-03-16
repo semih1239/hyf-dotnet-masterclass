@@ -8,21 +8,21 @@ Console.WriteLine(ganymedeTime);
 
 public abstract class AlienTime
 {
-    private int _hours = 0, _minutes = 0, HoursInDays;
+    private int _hours = 0, _minutes = 0, _hoursInDays;
 
     public override string ToString()
     {
-        if (_hours >= HoursInDays) _hours = _hours % HoursInDays;
-        if (HoursInDays > 99)
+        if (_hours >= _hoursInDays) _hours = _hours % _hoursInDays;
+        if (_hoursInDays > 99)
         {
             if (_minutes < 10)
             {
                 if (_hours < 10) return "00" + _hours + ":0" + _minutes;
-                else if (_hours < 100 && HoursInDays > 100) return "0" + _hours + ":0" + _minutes;
+                else if (_hours < 100 && _hoursInDays > 100) return "0" + _hours + ":0" + _minutes;
                 return _hours + ":" + _minutes;
             }
             if (_hours < 10) return "00" + _hours + ":" + _minutes;
-            else if (_hours < 100 && HoursInDays > 100) return "0" + _hours + ":" + _minutes;
+            else if (_hours < 100 && _hoursInDays > 100) return "0" + _hours + ":" + _minutes;
             return _hours + ":" + _minutes;
         }
         if (_minutes < 10) return _hours + ":0" + _minutes;
@@ -54,7 +54,7 @@ public abstract class AlienTime
             else if (value > 60)
             {
                 _hours = _hours + (value / 60);
-                if (_hours > HoursInDays - 1) _hours = _hours - HoursInDays;
+                if (_hours > _hoursInDays - 1) _hours = _hours - _hoursInDays;
                 _minutes = (value % 60);
             }
             else _minutes = value;
@@ -64,7 +64,7 @@ public abstract class AlienTime
     {
         Hours = hours;
         Minutes = minutes;
-        HoursInDays = hoursInDay;
+        _hoursInDays = hoursInDay;
     }
 }
 

@@ -47,6 +47,4 @@ class JupiterTime
         Hours = hours;
         Minutes = minutes;
     }
-
-
 }

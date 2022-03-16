@@ -6,7 +6,7 @@ signaler.Check(new JupiterTime(4, 21));
 
 class JupiterTime
 {
-    public int _hours = 0, _minutes = 0;
+    private int _hours = 0, _minutes = 0;
 
     public override string ToString()
     {
@@ -74,30 +74,36 @@ class JupiterTime
 
 class Signaler
 {
-    List<JupiterTime> Timelist = new List<JupiterTime>();
+    List<JupiterTime> SignalerTimes = new List<JupiterTime>();
+    List<JupiterTime> UnsentSignals = new List<JupiterTime>();
 
     public void AddTime(JupiterTime time)
     {
-        Timelist.Add(time);
+        SignalerTimes.Add(time);
     }
 
     public void Check(JupiterTime time)
     {
-        string combinedList = string.Join("-", Timelist);
-        int TimelistInt = (combinedList[combinedList.Length - 4]) - '0';
 
-        string combinedTimeList = string.Join("-", time);
-        int TimeInt = (combinedTimeList[combinedTimeList.Length - 4]) - '0';
+        foreach (var item in SignalerTimes)
+        {
+            if (time.Hours == item.Hours & time.Minutes > item.Minutes)
+            {
+                UnsentSignals.Add(item);
+            }
+            else if (time.Hours > item.Hours)
+            {
+                UnsentSignals.Add(item);
+            }
+        }
 
-        if (TimelistInt == TimeInt) Console.WriteLine("No signals needed to be sent yet");
+        if (UnsentSignals.Count == 0) Console.WriteLine("No signals needed to be sent yet");
         else
         {
-            for (int i = TimelistInt + 2; i != TimeInt; i += 2)
+            foreach (var item in UnsentSignals)
             {
-                if (i == 10) i = 0;
-                Console.WriteLine($"0{i}:00");
+                Console.WriteLine(item);
             }
         }
     }
-
 }

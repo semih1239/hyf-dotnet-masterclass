@@ -1,6 +1,7 @@
 using MealsharingNet;
 using NewMealRepository;
 using NewReservationRepository;
+using NewReviewRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSingleton<IMealRepository, InMemoryMealRepository>();
 builder.Services.AddSingleton<IReservationRepository, InMemoryReservationRepository>();
+builder.Services.AddSingleton<IReviewRepository, InMemoryReviewRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

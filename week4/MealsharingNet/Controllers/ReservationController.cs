@@ -17,13 +17,13 @@ public class ReservationController : ControllerBase
     [HttpGet("GetReservations")]
     public IEnumerable<Reservation> GetReservations()
     {
-        return _repo.ListReservation();
+        return _repo.ListReservations();
     }
 
     [HttpPost("AddReservation")]
-    public void AddReservation([FromBody] Reservation meal)
+    public void AddReservation([FromBody] Reservation reservation)
     {
-        _repo.AddReservation(meal);
+        _repo.AddReservation(reservation);
     }
 
     [HttpGet("GetMealReservationWithID")]

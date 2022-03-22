@@ -1,4 +1,4 @@
-using MealsharingNet.models;
+using MealsharingNet.Models;
 
 namespace MealsharingNet;
 

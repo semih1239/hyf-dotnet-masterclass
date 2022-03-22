@@ -7,5 +7,6 @@ public class Reservation
     public string Name { get; set; }
     public string Email { get; set; }
     public int NumberOfGuest { get; set; }
+    public DateTime Date { get; set; }
     public int PhoneNumber { get; set; }
 }

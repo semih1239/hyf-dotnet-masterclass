@@ -23,7 +23,7 @@ public class InMemoryMealRepository : IMealRepository
         return meal;
     }
 
-    public IEnumerable<Meal> ListMeal()
+    public IEnumerable<Meal> ListMeals()
     {
         return Meals;
     }

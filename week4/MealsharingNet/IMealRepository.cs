@@ -4,7 +4,7 @@ namespace MealsharingNet;
 
 public interface IMealRepository
 {
-    IEnumerable<Meal> ListMeal();
+    IEnumerable<Meal> ListMeals();
     void AddMeal(Meal meal);
     Meal GetMeal(int id);
 

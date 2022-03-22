@@ -4,7 +4,7 @@ namespace MealsharingNet;
 
 public interface IReservationRepository
 {
-    IEnumerable<Reservation> ListReservation();
+    IEnumerable<Reservation> ListReservations();
     void AddReservation(Reservation reservation);
     List<Reservation> GetMealReservations(int mealId);
 

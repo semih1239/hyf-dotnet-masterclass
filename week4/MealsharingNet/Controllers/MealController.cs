@@ -17,7 +17,7 @@ public class MealController : ControllerBase
     [HttpGet("GetMeals")]
     public IEnumerable<Meal> GetMeals()
     {
-        return _repo.ListMeal();
+        return _repo.ListMeals();
     }
 
     [HttpPost("AddMeal")]

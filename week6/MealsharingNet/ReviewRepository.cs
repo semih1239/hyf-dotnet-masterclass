@@ -5,32 +5,32 @@ using MealsharingNet.Models;
 
 public class ReviewRepository : IReviewRepository
 {
+    private MySqlConnection _connection;
+    public ReviewRepository()
+    {
+        _connection = new MySqlConnection(Shared.ConnectionString);
+    }
     public async Task AddReview(Review review)
     {
-        await using var connection = new MySqlConnection(Shared.ConnectionString);
-        await connection.ExecuteAsync("insert into reviews values (@ID, @title, @description, @meal_id, @stars, @created_date)", review);
+        await _connection.ExecuteAsync("insert into reviews values (@ID, @title, @description, @Meal_ID, @stars, @created_date)", review);
     }
     public async Task<List<Review>> GetMealReviews(int id)
     {
-        await using var connection = new MySqlConnection(Shared.ConnectionString);
-        var review = await connection.QueryAsync<Review>("select * from reviews where meal_id=@mealId", new { mealId = id} );
+        var review = await _connection.QueryAsync<Review>("select * from reviews where meal_id=@mealId", new { mealId = id });
         return review.ToList();
     }
 
     public async Task<IEnumerable<Review>> ListReviews()
     {
-        await using var connection = new MySqlConnection(Shared.ConnectionString);
-        var reviews = await connection.QueryAsync<Review>("select * from reviews");
+        var reviews = await _connection.QueryAsync<Review>("select * from reviews");
         return reviews;
     }
     public async Task UpdateReview(Review review)
     {
-        await using var connection = new MySqlConnection(Shared.ConnectionString);
-        await connection.ExecuteAsync("UPDATE reviews SET id=@id, title=@title, description=@description, meal_id=@meal_id, stars=@stars, created_date=@created_date WHERE id=@id", review);
+        await _connection.ExecuteAsync("UPDATE reviews SET id=@ID, title=@title, description=@description, meal_id=@Meal_ID, stars=@stars, created_date=@created_date WHERE id=@ID", review);
     }
     public async Task DeleteReview(int id)
     {
-        await using var connection = new MySqlConnection(Shared.ConnectionString);
-        await connection.ExecuteAsync(@"DELETE FROM reviews WHERE Id = @Id", new { Id = id });
+        await _connection.ExecuteAsync(@"DELETE FROM reviews WHERE Id = @Id", new { Id = id });
     }
 }

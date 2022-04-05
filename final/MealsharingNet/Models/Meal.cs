@@ -1,4 +1,4 @@
-namespace MealsharingNet.models;
+namespace MealsharingNet.Models;
 
 public class Meal
 {

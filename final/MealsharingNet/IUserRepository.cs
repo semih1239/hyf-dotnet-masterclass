@@ -1,4 +1,4 @@
-namespace MealsharingNet;
+namespace MealsharingNet.Models;
 
 public interface IUserRepository
 {

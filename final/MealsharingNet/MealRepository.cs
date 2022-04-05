@@ -1,7 +1,7 @@
 using MySql.Data.MySqlClient;
 using Dapper;
 using MealsharingNet;
-using MealsharingNet.models;
+using MealsharingNet.Models;
 
 public class MealRepository : IMealRepository
 {

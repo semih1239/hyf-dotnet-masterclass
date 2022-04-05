@@ -1,4 +1,5 @@
 using MealsharingNet;
+using MealsharingNet.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

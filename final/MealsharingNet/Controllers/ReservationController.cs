@@ -1,4 +1,4 @@
-using MealsharingNet.models;
+using MealsharingNet.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MealsharingNet.Controllers;

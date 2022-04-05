@@ -1,5 +1,6 @@
 using MySql.Data.MySqlClient;
 using Dapper;
+using MealsharingNet.Models;
 
 namespace MealsharingNet;
 

@@ -68,26 +68,6 @@ public class MealRepository : IMealRepository
             }
         }
 
-
-
-
-
-
-
-
-        // if(!string.IsNullOrWhiteSpace(mealSearch?.Title))
-        // {
-        //     query+=" where title like @title";
-        // }
-        // if(mealSearch?.MaxPrice>0)
-        // {
-        //     query+=" where price < @MaxPrice";
-        // }
-        // if(mealSearch?.AvailableReservation==true)
-        // {
-        //     query=" SELECT meals.*, sum(reservations.number_of_guests) as registered_guests FROM meals inner join reservations on meals.id = reservations.meal_id group By meals.id having max_reservations > registered_guests";
-        // }
-
         _logger.LogInformation("Query is {Query}", query);
         
         var meals = await _connection.QueryAsync<Meal>(query, new{ Title = "%" + mealSearch.Title + "%" , MaxPrice =  mealSearch.MaxPrice, AvailableReservation = mealSearch.AvailableReservations });

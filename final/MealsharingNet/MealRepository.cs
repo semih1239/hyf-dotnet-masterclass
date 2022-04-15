@@ -15,7 +15,7 @@ public class MealRepository : IMealRepository
     }
     public async Task AddMeal(Meal meal)
     {
-        await _connection.ExecuteAsync("insert into meals values (@ID, @Title, @Description, @When, @Location, @Max_reservations, @Price, @Img_link, @Created_date)", meal);
+        await _connection.ExecuteAsync("insert into meals (title, description, location, max_reservations, price, img_link) values (@Title, @Description, @Location, @Max_reservations, @Price, @Img_link)", meal);
     }
 
     public async Task DeleteMeal(int id)

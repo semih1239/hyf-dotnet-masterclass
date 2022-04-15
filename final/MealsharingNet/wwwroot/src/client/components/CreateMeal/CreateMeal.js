@@ -19,11 +19,10 @@ export const CreateMeal = () => {
         })
             .then(response => response.json())
             .then(data => {
-                alert('Success:', data);
+                console.log('Success:', data);
             })
             .catch((error) => {
-                alert("Error");
-                console.error('Error:', error)
+                console.error('Error:', error);
             });
     }
     return <div className="page">
@@ -31,7 +30,7 @@ export const CreateMeal = () => {
             <h1>Create Meal</h1>
         </header>
         <div className="form">
-            <form onSubmit={postData}>
+            <form onSubmit={postData} action="/added">
                 <div className="form-item">
                     <label htmlFor="title">Meal Title : </label>
                     <input type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Meal Title" required/>
